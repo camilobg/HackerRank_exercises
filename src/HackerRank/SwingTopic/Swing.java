@@ -1,4 +1,4 @@
-package HackerRank;
+package HackerRank.SwingTopic;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
