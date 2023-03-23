@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="HackerRank:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/HackerRank_jar</output-path>
+    <root id="archive" name="HackerRank.jar">
+      <element id="module-output" name="HackerRank" />
+      <element id="dir-copy" path="$PROJECT_DIR$/src/HackerRank/TicTacToe_Project" />
+    </root>
+  </artifact>
+</component>

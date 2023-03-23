@@ -16,13 +16,7 @@ public class hasNext {
         while(scan.hasNext()){
             texto=scan.nextLine();
             System.out.println(i+" "+texto);
-            /**
-            String[] lista=texto.split("\n");
-            int j=lista.length;
-            List<String> ls=new ArrayList<>();
-            System.out.println(j);
-            System.out.println(Arrays.toString(lista));
-             **/
+
             i=i+1;
             if(!scan.hasNext()){
                 texto=scan.nextLine();

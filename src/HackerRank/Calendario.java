@@ -22,7 +22,7 @@ public class Calendario {
         calendario.set(yy,mm,dd);
         System.out.println(calendario.getTime());
         System.out.println(calendario.get(calendario.DAY_OF_WEEK));
-        System.out.println(calendario.getDisplayName(Calendar.DAY_OF_WEEK,2, Locale.of("en")).toUpperCase());
+//        System.out.println(calendario.getDisplayName(Calendar.DAY_OF_WEEK,2, Locale.of("en")).toUpperCase());
 
 
 

@@ -1,34 +1,36 @@
 package HackerRank;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class ArrayGame {
     public static boolean canWin(int leap, int[] game) throws IndexOutOfBoundsException{
-        // Return true if you can win the game; otherwise, return false.
-        //System.out.println(Arrays.toString(game));
-        System.out.println("inicia función");
-        int pos=0;
-        boolean result=true;
-        boolean retroceder=false;
-        while(pos+leap<game.length){
-            if(!retroceder){
-                if(game[pos+leap]==0)pos+=leap;
-                else if(game[pos+1]==0)pos++;
-                else retroceder=true;
+        // Set of visited indices
+        Set<Integer> visited = new HashSet<>();
+        // Queue of indices to explore
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(0); // Start at index 0
+        while (!queue.isEmpty()) {
+            int current = queue.remove();
+            if (current + leap >= game.length || current == game.length - 1) {
+                // Can win by leaping or already reached the end
+                return true;
             }
-            if(retroceder){
-                if(game[pos+leap]==0)pos+=leap;
-                else if(pos-1>=0 && game[pos-1]==0)pos--;
-                else{
-                    result=false;
-                    System.out.println("Es un break");
-                    break;
-                }
+            if (current - 1 >= 0 && game[current - 1] == 0 && !visited.contains(current - 1)) {
+                // Can step back
+                queue.add(current - 1);
             }
+            if (game[current + 1] == 0 && !visited.contains(current + 1)) {
+                // Can step forward
+                queue.add(current + 1);
+            }
+            if (current + leap < game.length && game[current + leap] == 0 && !visited.contains(current + leap)) {
+                // Can leap
+                queue.add(current + leap);
+            }
+            visited.add(current);
         }
-        //System.out.println("Hecho ");
-        return result;
+        // Cannot reach the end
+        return false;
     }
 
     public static void main(String[] args) {
